@@ -15,4 +15,10 @@ import lombok.ToString;
 public class BatchEntry {
     private String name;
     private int age;
+    private boolean flag;
+
+    public BatchEntry(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
 }
