@@ -21,6 +21,7 @@ public class ImplementsCallable implements Callable<Integer>{
         FutureTask<Integer> tasks = new FutureTask<Integer>(callable);
         Thread t1 = new Thread(tasks);
         t1.start();
+        
         System.out.println("主线程");
         try {
             Integer integer = tasks.get();
