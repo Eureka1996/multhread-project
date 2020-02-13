@@ -13,6 +13,7 @@
     </modules>
     <properties>
         <lombok.version>1.18.10</lombok.version>
+        <slf4j.version>1.7.2</slf4j.version>
     </properties>
 
     <repositories>
@@ -36,7 +37,28 @@
             <version>${lombok.version}</version>
         </dependency>
 
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+
     </dependencies>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
