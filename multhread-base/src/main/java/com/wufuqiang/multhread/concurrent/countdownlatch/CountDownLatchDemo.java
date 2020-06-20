@@ -11,26 +11,26 @@ public class CountDownLatchDemo {
         final CountDownLatch countDownLatch = new CountDownLatch(2);
         new Thread(new Runnable() {
             public void run() {
-                System.out.println("子线程开始执行任务");
+                System.out.println(Thread.currentThread().getName()+"子线程开始执行任务");
                 try {
                     Thread.sleep(2000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
+                System.out.println(Thread.currentThread().getName()+"子线程任务执行完毕");
                 countDownLatch.countDown();
-                System.out.println("子线程任务执行完毕");
             }
         }).start();
         new Thread(new Runnable() {
             public void run() {
-                System.out.println("子线程开始执行任务");
+                System.out.println(Thread.currentThread().getName()+"子线程开始执行任务");
                 try {
                     Thread.sleep(2000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
+                System.out.println(Thread.currentThread().getName()+"子线程任务执行完毕");
                 countDownLatch.countDown();
-                System.out.println("子线程任务执行完毕");
             }
         }).start();
         try {
