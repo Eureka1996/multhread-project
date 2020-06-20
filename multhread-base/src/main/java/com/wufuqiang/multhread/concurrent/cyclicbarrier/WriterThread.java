@@ -30,6 +30,6 @@ public class WriterThread implements Runnable {
         } catch (BrokenBarrierException e) {
             e.printStackTrace();
         }
-        System.out.println("所有写操作都完成");
+//        System.out.println("所有写操作都完成");
     }
 }
