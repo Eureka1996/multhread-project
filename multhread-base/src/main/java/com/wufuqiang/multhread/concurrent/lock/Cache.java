@@ -19,7 +19,7 @@ public class Cache {
             w.lock();
             System.out.println("写入数据中：key="+key+",value="+value);
             try {
-                Thread.sleep(2000);
+                Thread.sleep(500);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -39,7 +39,7 @@ public class Cache {
             r.lock();
             System.out.println("正在读取数据：key="+key);
             try {
-                Thread.sleep(2000);
+                Thread.sleep(20);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -63,12 +63,15 @@ public class Cache {
                 }
             }
         }).start();
-        new Thread(new Runnable() {
-            public void run() {
-                for(int i = 0 ; i < 20;i++){
-                    Cache.get(i+"");
+        for(int i = 0 ;i<20;i++){
+            int tmp = i;
+            new Thread(new Runnable() {
+                public void run() {
+                    Cache.get(tmp+"");
+
                 }
-            }
-        }).start();
+            }).start();
+        }
+
     }
 }
